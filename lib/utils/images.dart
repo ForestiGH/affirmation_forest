@@ -1,0 +1,57 @@
+class MyImages {
+  static const String logoColorAn12 = "assets/images/android12LogoColor.png";
+  static const String logoWhiteAn12 = "assets/images/android12LogoWhite.png";
+  static const String logoColor = "assets/images/logoColor.svg";
+  static const String logoWhite = "assets/images/logoWhite.svg";
+  static const String bear = "assets/images/bear.png";
+  static const String birdBrown = "assets/images/bird.png";
+  static const String birdGreen = "assets/images/bird2.svg";
+  static const String butterfly = "assets/images/butterfly.svg";
+  static const String clover = "assets/images/clover.svg";
+  static const String drop = "assets/images/drop.svg";
+  static const String fileIcon = "assets/images/file.png";
+  static const String flower = "assets/images/flower.svg";
+  static const String forest = "assets/images/forest.svg";
+  static const String heart = "assets/images/heart.svg";
+  static const String mooseGreen = "assets/images/moose.png";
+  static const String mooseBrown = "assets/images/moose2.png";
+  static const String mushroom = "assets/images/mushroom.svg";
+  static const String otterGreen = "assets/images/otter.png";
+  static const String otterBrown = "assets/images/otter2.svg";
+  static const String owlGreen = "assets/images/owl.png";
+  static const String owlBrown = "assets/images/owl2.png";
+  static const String paw = "assets/images/paw.svg";
+  static const String plant = "assets/images/plant.svg";
+  static const String sparkle = "assets/images/sparkle.svg";
+  static const String squirrel = "assets/images/squirrel.png";
+  static const String star = "assets/images/star.svg";
+  static const String sun = "assets/images/sun.svg";
+  static const String tree1 = "assets/images/tree1.png";
+  static const String tree2 = "assets/images/tree2.png";
+  static const String tree3 = "assets/images/tree3.svg";
+  static const String tree4 = "assets/images/tree4.svg";
+
+  static const String english = "assets/images/en.png";
+  static const String finnish = "assets/images/fi.png";
+
+  static const String wcBear = "assets/images/bearWColor.png";
+  static const String wcBird = "assets/images/birdWColor.png";
+  static const String wcBird2 = "assets/images/birdWColor2.png";
+  static const String wcButterfly = "assets/images/butterflyWColor.png";
+  static const String wcDeer = "assets/images/deerWColor.png";
+  static const String wcDeer2 = "assets/images/deerWColor2.png";
+  static const String wcDragonfly = "assets/images/dragonflyWColor.png";
+  static const String wcDuck = "assets/images/duckWColor.png";
+  static const String wcFox = "assets/images/foxWColor.png";
+  static const String wcFox2 = "assets/images/foxWColor2.png";
+  static const String wcFrog = "assets/images/frogWColor.png";
+  static const String wcHedgehog = "assets/images/hedgehogWColor.png";
+  static const String wcLynx = "assets/images/lynxWColor.png";
+  static const String wcMoose = "assets/images/mooseWColor.png";
+  static const String wcMouse = "assets/images/mouseWColor.png";
+  static const String wcOtter = "assets/images/otterWColor.png";
+  static const String wcOwl = "assets/images/owlWColor.png";
+  static const String wcPheasant = "assets/images/pheasantWColor.png";
+  static const String wcRabbit = "assets/images/rabbitWColor.png";
+  static const String wcRabbit2 = "assets/images/rabbitWColor2.png";
+}
