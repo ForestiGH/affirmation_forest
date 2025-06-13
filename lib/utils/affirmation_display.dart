@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AffirmationDisplay extends StatefulWidget {
+	static Future<List<String>> getRandomValuesFromColumns(
+	 String csvAssetPath,
+	 String columnName,
+	 int count,
+  ) async {
+	 await Future.delayed(Duration(seconds: 1));
+	 
+	 return List.generate(count, (index) => '$columnName Value ${index + 1}');
+  }
+
   final String csvAssetPath;
   final String columnName;
   
@@ -22,7 +32,7 @@ class _AffirmationDisplayState extends State<AffirmationDisplay> {
     setState(() => isLoading = true);
     
     try {
-      final values = await AffirmationDisplay.(
+      final values = await AffirmationDisplay.getRandomValuesFromColumns(
         widget.csvAssetPath,
         widget.columnName,
         3, // Get 3 random values
