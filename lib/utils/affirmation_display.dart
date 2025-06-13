@@ -22,7 +22,7 @@ class _AffirmationDisplayState extends State<AffirmationDisplay> {
     setState(() => isLoading = true);
     
     try {
-      final values = await AffirmationDisplay.getRandomValuesFromColumn(
+      final values = await AffirmationDisplay.(
         widget.csvAssetPath,
         widget.columnName,
         3, // Get 3 random values
