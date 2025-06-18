@@ -59,9 +59,14 @@ This project is licensed under the [MIT License](LICENSE).
 
 Thank you for visiting **Affirmation Forest**! We hope it brings positivity, peace, and joy to your day. If you have any feedback or suggestions, feel free to reach out. Remember, the forest is always here for you.
 
-## Changelog
+## Muutoslogi
 
-### 17 June 2025
+### 17 kesäkuuta 2025
 
-- Added changelog section to README.
-- Started bugfixing affirmation loading.
+- Muutoslogi lisätty README-tiedostoon.
+- Bugikorjaukset CSV-tiedoston lataukseen ja lukuun aloitettu.
+
+### 18 kesäkuuta 2025
+
+- Bugikorjaukset jatkuvat.
+- Muutoslogi käännetty suomeksi.
