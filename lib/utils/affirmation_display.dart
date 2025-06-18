@@ -59,7 +59,7 @@ class _AffirmationDisplayState extends State<AffirmationDisplay> {
       final values = await AffirmationDisplay.getRandomValuesFromColumns(
         widget.csvAssetPath,
         widget.columnName,
-        3, // Get 3 random values
+        1, // Get 1 random value
       );
 
       setState(() => randomValues = values);

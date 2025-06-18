@@ -1,11 +1,5 @@
 import 'package:affirmation_forest/utils/colors.dart';
-import 'package:affirmation_forest/utils/strings_en.dart' as en;
-import 'package:affirmation_forest/utils/strings_fi.dart' as fi;
-import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:affirmation_forest/utils/affirmation_selector.dart';
-import 'package:affirmation_forest/utils/affirmations_en.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:csv/csv.dart';
 
@@ -17,7 +11,7 @@ class AffirmationAAEn extends StatefulWidget {
 }
 
 class _AffirmationAAEnState extends State<AffirmationAAEn> {
-  final AffirmationRandomSelector selection = AffirmationRandomSelector();
+  List<String> affirmations = []; // List to store affirmations
 
   @override
   void initState() {
@@ -26,20 +20,48 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
   }
 
   Future<void> loadAffirmations() async {
-    final affirmations = await readAffirmationAA();
-    setState(() {
-      selection.selected.addAll(affirmations);
-    });
+    try {
+      final loadedAffirmations = await readAffirmationAA();
+      setState(() {
+        affirmations = loadedAffirmations;
+      });
+    } catch (e) {
+      print("Error loading affirmations: $e");
+    }
   }
 
   Future<List<String>> readAffirmationAA() async {
-    final data = await rootBundle.loadString('assets/sheets/affirmations.csv');
-    final List<List<dynamic>> csvTable = const CsvToListConverter().convert(data);
-    final List<String> result = csvTable
-        .sublist(1, 90)
-        .map((row) => row[24].toString())
-        .toList();
-    return result;
+    try {
+      // Load the CSV file from assets
+      final data = await rootBundle.loadString('assets/sheets/affirmations.csv');
+      print("CSV file loaded successfully.");
+
+      // Parse the CSV file
+      final List<List<dynamic>> csvTable = const CsvToListConverter().convert(data);
+      print("CSV Table: ${csvTable.take(5)}"); // Debug: Print the first 5 rows of the CSV
+
+      // Ensure the file has enough rows and columns
+      if (csvTable.length < 2) {
+        print("CSV file does not have enough rows.");
+        return [];
+      }
+      if (csvTable[0].length <= 24) {
+        print("CSV file does not have enough columns.");
+        return [];
+      }
+
+      // Extract affirmations from the 25th column (index 24)
+      final List<String> result = csvTable
+          .sublist(1) // Skip the header row
+          .map((row) => row[24].toString()) // Convert the 25th column to a string
+          .toList();
+
+      print("Parsed Affirmations: $result"); // Debug: Print the parsed affirmations
+      return result;
+    } catch (e) {
+      print("Error reading CSV: $e");
+      return [];
+    }
   }
 
   @override
@@ -47,6 +69,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColor.bianca,
+        title: const Text("Affirmations"),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -67,14 +90,24 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
                     ),
                     Center(
                       child: Text(
-                        selection.selected.isNotEmpty
-                            ? selection.selected.last
-                            : "No selection yet",
-                        style: TextStyle(
+                        affirmations.isNotEmpty
+                            ? affirmations.last // Display the last affirmation
+                            : "No affirmations loaded.",
+                        style: const TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 24,
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          // Display a random affirmation when the button is pressed
+                          affirmations.shuffle();
+                        });
+                      },
+                      child: const Text("Show Random Affirmation"),
                     ),
                   ],
                 ),
