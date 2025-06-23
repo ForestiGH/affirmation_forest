@@ -12,6 +12,11 @@ class AffirmationAAEn extends StatefulWidget {
 
 class _AffirmationAAEnState extends State<AffirmationAAEn> {
   List<String> affirmations = []; // List to store affirmations
+  String displayedAffirmation = ""; // Currently displayed affirmation
+  List<String> savedAffirmations = []; // List to store saved affirmations
+
+  Offset _startSwipeOffset = Offset.zero; // Starting point of the swipe
+  Offset _endSwipeOffset = Offset.zero; // Ending point of the swipe
 
   @override
   void initState() {
@@ -24,6 +29,9 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
       final loadedAffirmations = await readAffirmationAA();
       setState(() {
         affirmations = loadedAffirmations;
+        if (affirmations.isNotEmpty) {
+          displayedAffirmation = affirmations.last; // Display the last affirmation initially
+        }
       });
     } catch (e) {
       print("Error loading affirmations: $e");
@@ -64,6 +72,22 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     }
   }
 
+  void handleSwipeAction(double swipeDelta) {
+    setState(() {
+      if (swipeDelta > 0) {
+        // Positive swipe: Save the displayed affirmation
+        if (displayedAffirmation.isNotEmpty) {
+          savedAffirmations.add(displayedAffirmation);
+          print("Saved affirmation: $displayedAffirmation");
+        }
+      } else if (swipeDelta < 0) {
+        // Negative swipe: Clear the displayed affirmation
+        displayedAffirmation = "";
+        print("Cleared affirmation.");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,40 +100,64 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
           return SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
-              child: Container(
-                color: MyColor.bianca,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                    ),
-                    Image.asset('assets/images/bearWColor.png'),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                    ),
-                    Center(
-                      child: Text(
-                        affirmations.isNotEmpty
-                            ? affirmations.last // Display the last affirmation
-                            : "No affirmations loaded.",
-                        style: const TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 24,
+              child: GestureDetector(
+                onPanStart: (details) {
+                  _startSwipeOffset = details.localPosition; // Record the starting point of the swipe
+                },
+                onPanUpdate: (details) {
+                  _endSwipeOffset = details.localPosition; // Update the ending point of the swipe
+                },
+                onPanEnd: (details) {
+                  // Calculate the swipe delta (horizontal movement)
+                  double swipeDelta = _endSwipeOffset.dx - _startSwipeOffset.dx;
+
+                  // Handle the swipe action
+                  handleSwipeAction(swipeDelta);
+                },
+                child: Container(
+                  color: MyColor.bianca,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                      ),
+                      Image.asset('assets/images/bearWColor.png'),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                      ),
+                      Center(
+                        child: Text(
+                          displayedAffirmation.isNotEmpty
+                              ? displayedAffirmation // Display the current affirmation
+                              : "No affirmations loaded.",
+                          style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 24,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          // Display a random affirmation when the button is pressed
-                          affirmations.shuffle();
-                        });
-                      },
-                      child: const Text("Show Random Affirmation"),
-                    ),
-                  ],
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            // Display a random affirmation when the button is pressed
+                            affirmations.shuffle();
+                            displayedAffirmation = affirmations.isNotEmpty ? affirmations.last : "";
+                          });
+                        },
+                        child: const Text("Show Random Affirmation"),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Display saved affirmations
+                          print("Saved affirmations: $savedAffirmations");
+                        },
+                        child: const Text("View Saved Affirmations"),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
