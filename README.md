@@ -27,26 +27,6 @@ Welcome to **Affirmation Forest**! This application is your personal sanctuary f
 - 🌱 Resilience
 - 🧘 Mindfulness
 
-## 🚀 Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/affirmation-forest.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd affirmation-forest
-   ```
-3. Install dependencies (if applicable):
-   ```bash
-   npm install
-   ```
-4. Run the application:
-   ```bash
-   npm start
-   ```
-5. Open your browser and step into the **Affirmation Forest**!
-
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to add new features, improve the UI, or expand the affirmation categories, feel free to submit a pull request. Please ensure your changes align with the purpose of the application.
@@ -59,14 +39,28 @@ This project is licensed under the [MIT License](LICENSE).
 
 Thank you for visiting **Affirmation Forest**! We hope it brings positivity, peace, and joy to your day. If you have any feedback or suggestions, feel free to reach out. Remember, the forest is always here for you.
 
-## Muutoslogi
+# TÄSTÄ ETEENPÄIN SUOMEKSI :flag-fi:
+
+## Muutosloki
 
 ### 17 kesäkuuta 2025
 
-- Muutoslogi lisätty README-tiedostoon.
-- Bugikorjaukset CSV-tiedoston lataukseen ja lukuun aloitettu.
+#### Mitä tein:
+Muutosloki lisätty README-tiedostoon. Bugikorjaukset CSV-tiedoston lataukseen ja lukuun aloitettu.
+
+#### Mitä yritin:
+Koitin korjata CSV-tiedoston lataus- ja lukuongelmat. Applikaatio ei käynnisty oikein, koska affirmaatiot eivät lataudu.
+
+#### Mitä seuraavaksi:
+Korjaan CSV-tiedoston lataus- ja lukuongelmat, jotta affirmaatiot näkyvät oikein ja applikaatio ylipäätään käynnistyy. Tarkistan myös, että applikaatio toimii odotetusti ja että affirmaatiot latautuvat valitun kategorian mukaan.
 
 ### 18 kesäkuuta 2025
 
-- Bugikorjaukset jatkuvat.
-- Muutoslogi käännetty suomeksi.
+#### Mitä tein:
+Bugikorjaukset jatkuvat. CSV-tiedoston lataus ollaan saatu toimimaan. CSV-tiedoston luku ei toimi vielä. Muutosloki käännetty suomeksi. Sain applikaation käynnistymään, mutta affirmaatiot eivät näy.
+
+#### Mitä yritin:
+Käynnistin applikaation, mutta affirmaatioruutu ei näytä affirmaatioita. CSV-tiedoston luku ei toimi, joten affirmaatiot eivät lataudu oikein. Applikaation pitäisi lukea CSV-tiedostosta.
+
+#### Mitä seuraavaksi:
+Korjaan CSV-tiedoston luku- ja latausongelmat, jotta affirmaatiot näkyvät oikein. Tarkistan myös, että applikaatio toimii odotetusti ja että affirmaatiot latautuvat valitun kategorian mukaan.
