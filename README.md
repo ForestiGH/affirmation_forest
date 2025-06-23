@@ -39,7 +39,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 Thank you for visiting **Affirmation Forest**! We hope it brings positivity, peace, and joy to your day. If you have any feedback or suggestions, feel free to reach out. Remember, the forest is always here for you.
 
-# TÄSTÄ ETEENPÄIN SUOMEKSI :flag-fi:
+# TÄSTÄ ETEENPÄIN SUOMEKSI
 
 ## Muutosloki
 
