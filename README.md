@@ -64,3 +64,14 @@ Käynnistin applikaation, mutta affirmaatioruutu ei näytä affirmaatioita. CSV-
 
 #### Mitä seuraavaksi:
 Korjaan CSV-tiedoston luku- ja latausongelmat, jotta affirmaatiot näkyvät oikein. Tarkistan myös, että applikaatio toimii odotetusti ja että affirmaatiot latautuvat valitun kategorian mukaan.
+
+### 23 kesäkuuta 2025
+
+#### Mitä tein:
+Bugikorjaukset jatkuvat. Jouduin lopettaa aikaisin henkilökohtaisista syistä.
+
+#### Mitä yritin:
+Yritin korjata CSV-tiedoston luku- ja latausongelmat, mutta en ehtinyt saada niitä valmiiksi. Applikaatio ei vieläkään toimi oikein.
+
+#### Mitä seuraavaksi:
+Jatkan bugikorjauksia, jotta CSV-tiedoston luku- ja latausongelmat saadaan korjattua.
