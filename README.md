@@ -75,3 +75,14 @@ Yritin korjata CSV-tiedoston luku- ja latausongelmat, mutta en ehtinyt saada nii
 
 #### Mitä seuraavaksi:
 Jatkan bugikorjauksia, jotta CSV-tiedoston luku- ja latausongelmat saadaan korjattua.
+
+### 24 kesäkuuta 2025
+
+#### Mitä tein:
+Bugikorjaukset jatkuvat. CSV-tiedoston luku onnistuu, mutta affirmaatiot eivät näy applikaatiossa. Muutin CSV-tiedoston UTF-8-koodaukseen.
+
+#### Mitä yritin:
+Kirjoitin affirmaatioruudun koodin uudestaan, jotta affirmaatiot näkyisivät oikein. CSV-tiedoston luku onnistuu, mutta affirmaatiot eivät lataudu applikaatioon.
+
+#### Mitä seuraavaksi:
+Koetan saada affirmaatiot näkymään applikaatiossa.
