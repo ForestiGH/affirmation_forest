@@ -9,15 +9,21 @@ class AffirmationDisplay extends StatefulWidget {
     String columnName,
     int count,
   ) async {
+	  try {
     // Load the CSV file
     final data = await rootBundle.loadString(csvAssetPath);
+	 print('CSV data loaded: $data');
 
     // Parse the CSV file
     final List<List<dynamic>> csvTable = const CsvToListConverter().convert(data);
+	 print('CSV table parsed: $csvTable');
 
     // Get the header row to find the column index
     final List<dynamic> headerRow = csvTable.first;
+	 print('Header row: $headerRow');
+
     final int columnIndex = headerRow.indexOf(columnName);
+	 print('Column index: "$columnIndex');
 
     if (columnIndex == -1) {
       throw Exception('Column "$columnName" not found in CSV file.');
@@ -29,9 +35,15 @@ class AffirmationDisplay extends StatefulWidget {
         .map((row) => row[columnIndex].toString())
         .toList();
 
+	 print('Column values: $columnValues');
+
     // Shuffle the values and return the requested count
     columnValues.shuffle();
     return columnValues.take(count).toList();
+  } catch (e) {
+	 print('Error loading CSV data: $e');
+	 throw Exception('Failed to load random values from CSV: $e');
+  	}
   }
 
   final String csvAssetPath;
@@ -75,23 +87,23 @@ class _AffirmationDisplayState extends State<AffirmationDisplay> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
           onPressed: loadRandomValues,
-          child: Text('Load Random Values'),
+          child: Text('Load Random Affirmation'),
         ),
-        if (isLoading) CircularProgressIndicator(),
+        const SizedBox(height: 20),
+        if (isLoading) const CircularProgressIndicator(),
         if (randomValues.isNotEmpty)
-          Column(
-            children: randomValues
-                .map((value) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        value,
-                        style: TextStyle(fontSize: 18, fontFamily: 'Poppins'),
-                      ),
-                    ))
-                .toList(),
+          Text(
+            randomValues.first, // Display the first random value
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 24,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+            ),
           ),
       ],
     );
