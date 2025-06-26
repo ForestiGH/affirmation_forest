@@ -86,3 +86,14 @@ Kirjoitin affirmaatioruudun koodin uudestaan, jotta affirmaatiot näkyisivät oi
 
 #### Mitä seuraavaksi:
 Koetan saada affirmaatiot näkymään applikaatiossa.
+
+### 26 kesäkuuta 2025
+
+#### Mitä tein:
+Lisäsin debug-tulostukset. CSV-tiedoston luku onnistuu, mutta affirmaatiot eivät näy applikaatiossa.
+
+#### Mitä yritin:
+Yritin debugata, miksi affirmaatiot eivät näy applikaatiossa. CSV-tiedoston luku onnistuu, mutta affirmaatiot eivät lataudu applikaatioon.
+
+#### Mitä seuraavaksi:
+Koetan saada affirmaatiot näkymään applikaatiossa. Debug-tulostukset auttavat löytämään ongelman.
