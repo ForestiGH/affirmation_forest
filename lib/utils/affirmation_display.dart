@@ -18,15 +18,22 @@ class AffirmationDisplay extends StatefulWidget {
     final List<List<dynamic>> csvTable = const CsvToListConverter().convert(data);
 	 print('CSV table parsed: $csvTable');
 
-    // Get the header row to find the column index
-    final List<dynamic> headerRow = csvTable.first;
-	 print('Header row: $headerRow');
+		if (csvTable.isEmpty || csvTable.length < 2) {
+			throw Exception('CSV file is empty or does not contain enough data.');
+		}
 
-    final int columnIndex = headerRow.indexOf(columnName);
+    // Get the header row to find the column index
+    final List<dynamic> headerRow = csvTable.first.map((e) => e.toString().trim().replaceAll('\uFEFF', '')).toList();
+	 final String normalizedColumnName = columnName.trim().replaceAll('\uFEFF', '');
+	 print('Header row: $headerRow');
+	 print('Normalized column name: "$normalizedColumnName"');
+
+    final int columnIndex = headerRow.indexOf(normalizedColumnName);
 	 print('Column index: "$columnIndex');
 
     if (columnIndex == -1) {
       throw Exception('Column "$columnName" not found in CSV file.');
+
     }
 
     // Extract the values from the specified column

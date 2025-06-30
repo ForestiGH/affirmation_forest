@@ -17,7 +17,7 @@ return Scaffold(
 		padding: const EdgeInsets.all(16.0),
 		child: AffirmationDisplay(
 			csvAssetPath: 'assets/sheets/affirmations.csv',
-			columnName: 'Balanced and fulfilling everyday life',
+			columnName: 'Balanced_and_fulfilling_everyday_life',
 		),
 	),
 );

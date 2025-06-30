@@ -97,3 +97,14 @@ Yritin debugata, miksi affirmaatiot eivät näy applikaatiossa. CSV-tiedoston lu
 
 #### Mitä seuraavaksi:
 Koetan saada affirmaatiot näkymään applikaatiossa. Debug-tulostukset auttavat löytämään ongelman.
+
+### 30 kesäkuuta 2025
+
+#### Mitä tein:
+Debug-tulostukset auttoivat löytämään ongelman. CSV-tiedostossa on tyhjiä rivejä, jotka estävät affirmaatioiden näkymisen. Korvasin välilyönnit alaviivoilla ensimmäisen rivin soluista.
+
+#### Mitä yritin:
+Lisäsin debug-tulostuksia, jotta näen, mitkä affirmaatiot latautuvat. CSV-tiedoston luku onnistuu, mutta tyhjät rivit estävät affirmaatioiden näkymisen.
+
+#### Mitä seuraavaksi:
+Korjaan CSV-tiedoston tyhjät rivit ja varmistan, että affirmaatiot latautuvat oikein. Tarkistan myös, että applikaatio toimii odotetusti ja että affirmaatiot näkyvät valitun kategorian mukaan.
