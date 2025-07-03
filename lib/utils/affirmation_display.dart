@@ -18,8 +18,12 @@ class AffirmationDisplay extends StatefulWidget {
     final List<List<dynamic>> csvTable = const CsvToListConverter().convert(data);
 	 print('CSV table parsed: $csvTable');
 
-		if (csvTable.isEmpty || csvTable.length < 2) {
-			throw Exception('CSV file is empty or does not contain enough data.');
+	 if (data.trim().isEmpty) {
+			throw Exception('CSV file is empty.');
+		}
+
+		if (csvTable.isEmpty || csvTable.isEmpty) {
+			throw Exception('CSV file does not contain enough data.');
 		}
 
     // Get the header row to find the column index

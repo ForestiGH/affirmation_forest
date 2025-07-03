@@ -1,7 +1,5 @@
 import 'package:affirmation_forest/utils/colors.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart' show rootBundle;
-//import 'package:csv/csv.dart';
 import 'package:affirmation_forest/utils/affirmation_display.dart';
 
 class AffirmationAAEn extends StatelessWidget {
