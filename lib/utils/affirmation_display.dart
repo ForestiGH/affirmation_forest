@@ -33,7 +33,7 @@ class AffirmationDisplay extends StatefulWidget {
 	 print('Normalized column name: "$normalizedColumnName"');
 
     final int columnIndex = headerRow.indexOf(normalizedColumnName);
-	 print('Column index: "$columnIndex');
+	 print('Column index: "$columnIndex"');
 
     if (columnIndex == -1) {
       throw Exception('Column "$columnName" not found in CSV file.');
