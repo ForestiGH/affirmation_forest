@@ -33,10 +33,7 @@ class StartEn extends StatelessWidget {
 									fontSize: 18,)
 								),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
+									padding: const EdgeInsets.only(bottom: 16),
 									),
 
 								ElevatedButton.icon(
@@ -53,11 +50,14 @@ class StartEn extends StatelessWidget {
 											),
 										'Start!',),
 									onPressed: () {
-									Navigator.of(context).push(Choice1En());
+									Navigator.of(context).push(enChoice1());
 									},
 									icon: Align(
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.paw, width: 30, height: 30,),),
+									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 32),
 									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
@@ -71,12 +71,42 @@ class StartEn extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Button text',),
+										'Tips for using affirmations',),
 									onPressed: () {},
 									icon: Align(
 										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.butterfly, width: 30, height: 30,),),
+										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
 									),
+								ElevatedButton.icon(
+									style: ElevatedButton.styleFrom(
+										fixedSize: Size(350, 20),
+										backgroundColor: MyColor.chelseaCucumber,
+										foregroundColor: MyColor.kelp,
+										shape: const RoundedRectangleBorder(
+											borderRadius: BorderRadius.all(Radius.circular(2))),
+										),
+									label: const Text(
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											),
+										'Subscription',),
+									onPressed: () {},
+									icon: Align(
+										alignment: Alignment.centerLeft,
+										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
+									),
+							Padding(
+								padding: EdgeInsets.all(190),
+								),
+
+							Padding(
+								padding: EdgeInsets.all(16),
+								child: SvgPicture.asset(
+									MyImages.logoColor,
+								width: 100,
+								height: 100,
+								),
+								),
 								],
 							)
 						)

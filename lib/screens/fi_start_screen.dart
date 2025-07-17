@@ -26,24 +26,14 @@ class StartFi extends StatelessWidget {
 								backgroundColor: MyColor.bianca,
 								),
 							Text(
-								'Headline',
+								'Tervetuloa Affirmation Forestiin!',
 								style: TextStyle(
 									fontFamily: 'Merriweather',
 									color: MyColor.crete,
 									fontSize: 18,)
 								),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
-									),
-								Text(
-									'Subtitle',
-									style: TextStyle(
-										fontFamily: 'Poppins',
-										color: MyColor.lisbonBrown,
-										fontSize: 14,)
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
+									padding: const EdgeInsets.only(bottom: 16),
 									),
 
 								ElevatedButton.icon(
@@ -58,11 +48,52 @@ class StartFi extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Button text',),
+										'Aloita!',),
+									onPressed: () {
+									Navigator.of(context).push(fiChoice1());
+									},
+									icon: Align(
+										alignment: Alignment.centerLeft,
+										child: SvgPicture.asset(MyImages.paw, width: 30, height: 30,),),
+									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 32),
+									),
+								ElevatedButton.icon(
+									style: ElevatedButton.styleFrom(
+										fixedSize: Size(350, 20),
+										backgroundColor: MyColor.chelseaCucumber,
+										foregroundColor: MyColor.kelp,
+										shape: const RoundedRectangleBorder(
+											borderRadius: BorderRadius.all(Radius.circular(2))),
+										),
+									label: const Text(
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											),
+										'Vinkkejä affirmaatioiden käyttöön',),
 									onPressed: () {},
 									icon: Align(
 										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.butterfly, width: 30, height: 30,),),
+										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
+									),
+								ElevatedButton.icon(
+									style: ElevatedButton.styleFrom(
+										fixedSize: Size(350, 20),
+										backgroundColor: MyColor.chelseaCucumber,
+										foregroundColor: MyColor.kelp,
+										shape: const RoundedRectangleBorder(
+											borderRadius: BorderRadius.all(Radius.circular(2))),
+										),
+									label: const Text(
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											),
+										'Tilaus',),
+									onPressed: () {},
+									icon: Align(
+										alignment: Alignment.centerLeft,
+										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
 									),
 								],
 							)
