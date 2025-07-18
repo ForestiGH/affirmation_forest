@@ -4,6 +4,12 @@ class MyStrings {
 	static const String deleteAccount = 'Poista tili';
 	static const String whatDoYouNeed = 'Mitä kaipaat elämääsi juuri nyt?';
 
+	static const String whatAreAffirmations = 'Mikä on affirmaatio?';
+	static const String affirmationsAre = 'Affirmaatio on positiivinen lause, joka vahvistaa ajatteluasi ja auttaa sinua keskittymään haluamaasi muutokseen.';
+	static const String howDoAffirmationsWork = 'Miten affirmaatiot toimivat?';
+	static const String affirmationsWork = 'Toistamalla affirmaatioita säännöllisesti voit:';
+	static const String affirmationsWork2 = 'Vahvistaa itseluottamustasi\nKorvata negatiiviset ajatukset positiivisilla\nOhjata mieltäsi kohti tavoitteitasi';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = 'Hyvinvoiva arki ja ihmissuhteet';

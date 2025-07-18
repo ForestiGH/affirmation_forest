@@ -147,14 +147,14 @@ class Choice1En extends StatelessWidget {
 								width: 100,
 								height: 100,
 								),
-								),
-							]
-						),
-					)
-					)
-				);
-			}
-		)
-	);
+							),
+						]
+					),
+				)
+			)
+		);
+	}
+)
+);
 }
 }

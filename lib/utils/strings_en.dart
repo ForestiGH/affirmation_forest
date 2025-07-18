@@ -6,6 +6,12 @@ class MyStrings {
 
 	static const String appName = 'Affirmation Forest';
 
+	static const String whatAreAffirmations = 'What are affirmations?';
+	static const String affirmationsAre = 'Affirmaatio on positiivinen lause, joka vahvistaa ajatteluasi ja auttaa sinua keskittymään haluamaasi muutokseen.';
+	static const String howDoAffirmationsWork = 'Miten affirmaatiot toimivat?';
+	static const String affirmationsWork = 'Toistamalla affirmaatioita säännöllisesti voit:';
+	static const String affirmationsWork2 = 'Vahvistaa itseluottamustasi\nKorvata negatiiviset ajatukset positiivisilla\nOhjata mieltäsi kohti tavoitteitasi';
+
 	static const String buttonChoice1 = ' Life areas and balanced everyday life';
 	static const String buttonChoice2 = ' Mental wellness and balance';
 	static const String buttonChoice3 = ' Efficient and balanced work life';

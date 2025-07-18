@@ -72,7 +72,9 @@ class StartFi extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Vinkkejä affirmaatioiden käyttöön',),
-									onPressed: () {},
+									onPressed: () {
+									Navigator.of(context).push(fiTips());
+									},
 									icon: Align(
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
