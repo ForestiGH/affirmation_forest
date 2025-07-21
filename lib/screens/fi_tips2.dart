@@ -6,8 +6,8 @@ import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tips1Fi extends StatelessWidget {
-	const Tips1Fi({super.key});
+class Tips2Fi extends StatelessWidget {
+	const Tips2Fi({super.key});
 
 	@override
 	Widget build(BuildContext context) {
@@ -26,14 +26,14 @@ class Tips1Fi extends StatelessWidget {
 								backgroundColor: MyColor.bianca,
 								),
 							Image.asset(
-								MyImages.wcBird,
+								MyImages.wcDeer,
 								width: 200,
 								height: 200,),
 							Padding(
 								padding: const EdgeInsets.only(bottom: 16),
 								),
 							Text(
-								fi.MyStrings.whatAreAffirmations,
+								fi.MyStrings.howToUse,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -42,6 +42,17 @@ class Tips1Fi extends StatelessWidget {
 								),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
+									),
+							Text(
+								fi.MyStrings.howToUse1,
+								style: TextStyle(
+									fontWeight: FontWeight.bold,
+									fontFamily: 'Merriweather',
+									color: MyColor.crete,
+									fontSize: 18,)
+								),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 4),
 									),
 
 								SizedBox(
@@ -53,51 +64,19 @@ class Tips1Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.affirmationsAre,),
+										fi.MyStrings.howToUse1a,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 32),
 									),
 							Text(
-								fi.MyStrings.howDoAffirmationsWork,
+								fi.MyStrings.howToUse2,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
 									color: MyColor.crete,
 									fontSize: 18,)
 								),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 16),
-									),
-								SizedBox(
-									width: 350,
-									child: Text(
-									textAlign: TextAlign.center,
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											color: MyColor.lisbonBrown,
-											fontSize: 16,
-											),
-										fi.MyStrings.affirmationsWork,),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 16),
-									),
-								SizedBox(
-									width: 350,
-									child: Text(
-									textAlign: TextAlign.center,
-										style: TextStyle(
-											fontWeight: FontWeight.bold,
-											fontFamily: 'Poppins',
-											color: MyColor.lisbonBrown,
-											fontSize: 16,
-											),
-										fi.MyStrings.affirmationsWork2,),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 32),
-									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
 										fixedSize: Size(175, 20),
@@ -111,8 +90,7 @@ class Tips1Fi extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Seuraava',),
-									onPressed: () {
-									Navigator.of(context).push(fiTips2());},
+									onPressed: () {},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

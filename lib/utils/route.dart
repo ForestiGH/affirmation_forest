@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:affirmation_forest/screens/en_start_screen.dart';
 import 'package:affirmation_forest/screens/fi_start_screen.dart';
+import 'package:affirmation_forest/screens/en_tips1.dart';
 import 'package:affirmation_forest/screens/fi_tips1.dart';
+import 'package:affirmation_forest/screens/fi_tips2.dart';
 import 'package:affirmation_forest/screens/en_choice1.dart';
 import 'package:affirmation_forest/screens/en_choice2a.dart';
 import 'package:affirmation_forest/screens/en_choice2b.dart';
@@ -45,6 +47,34 @@ Route finnishOption() {
 Route fiTips() {
 	return PageRouteBuilder(
 		pageBuilder: (context, animation, secondaryAnimation) => const Tips1Fi(),
+		transitionsBuilder: (context, animation, secondaryAnimation, child) {
+			const begin = Offset(0.0, 1.0);
+			const end = Offset.zero;
+			const curve = Curves.ease;
+		
+			var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+			return SlideTransition(position: animation.drive(tween), child: child);
+		},
+	);
+}
+Route enTips() {
+	return PageRouteBuilder(
+		pageBuilder: (context, animation, secondaryAnimation) => const Tips1En(),
+		transitionsBuilder: (context, animation, secondaryAnimation, child) {
+			const begin = Offset(0.0, 1.0);
+			const end = Offset.zero;
+			const curve = Curves.ease;
+		
+			var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+			return SlideTransition(position: animation.drive(tween), child: child);
+		},
+	);
+}
+Route fiTips2() {
+	return PageRouteBuilder(
+		pageBuilder: (context, animation, secondaryAnimation) => const Tips2Fi(),
 		transitionsBuilder: (context, animation, secondaryAnimation, child) {
 			const begin = Offset(0.0, 1.0);
 			const end = Offset.zero;

@@ -72,7 +72,9 @@ class StartEn extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Tips for using affirmations',),
-									onPressed: () {},
+									onPressed: () {
+									Navigator.of(context).push(enTips());
+									},
 									icon: Align(
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
@@ -106,14 +108,14 @@ class StartEn extends StatelessWidget {
 								width: 100,
 								height: 100,
 								),
-								),
-								],
-							)
-						)
+							),
+						],
 					)
-				);
-			}
-		)
-	);
+				)
+			)
+		);
+	}
+)
+);
 }
 }

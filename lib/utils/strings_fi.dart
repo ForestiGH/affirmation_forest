@@ -10,6 +10,16 @@ class MyStrings {
 	static const String affirmationsWork = 'Toistamalla affirmaatioita säännöllisesti voit:';
 	static const String affirmationsWork2 = 'Vahvistaa itseluottamustasi\nKorvata negatiiviset ajatukset positiivisilla\nOhjata mieltäsi kohti tavoitteitasi';
 
+	static const String howToUse = 'Kuinka käyttää affirmaatioita?';
+	static const String howToUse1 = 'Valitse positiivinen lause';
+	static const String howToUse1a = 'Esimerkiksi: "Minä olen arvokas ja riittävä juuri sellaisena kuin olen."';
+	static const String howToUse2 = 'Toista lausetta päivittäin';
+	static const String howToUse2a = 'Sano se ääneen, kirjoita ylos tai toista mielessäsi.';
+	static const String howToUse3 = 'Yhdistä tunteseen';
+	static const String howToUse3a = 'Kuvittele ja tunne, että se on totta.';
+	static const String howToUse4 = 'Ole johdonmukainen';
+	static const String howToUse4a = 'Käytä affirmaatioita säännöllisesti osana arkeasi.';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = 'Hyvinvoiva arki ja ihmissuhteet';

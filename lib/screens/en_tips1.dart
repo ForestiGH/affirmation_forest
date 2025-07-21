@@ -6,8 +6,8 @@ import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tips1Fi extends StatelessWidget {
-	const Tips1Fi({super.key});
+class Tips1En extends StatelessWidget {
+	const Tips1En({super.key});
 
 	@override
 	Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Tips1Fi extends StatelessWidget {
 								padding: const EdgeInsets.only(bottom: 16),
 								),
 							Text(
-								fi.MyStrings.whatAreAffirmations,
+								en.MyStrings.whatAreAffirmations,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -53,13 +53,13 @@ class Tips1Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.affirmationsAre,),
+										en.MyStrings.affirmationsAre,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 32),
 									),
 							Text(
-								fi.MyStrings.howDoAffirmationsWork,
+								en.MyStrings.howDoAffirmationsWork,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -78,7 +78,7 @@ class Tips1Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.affirmationsWork,),
+										en.MyStrings.affirmationsWork,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
@@ -93,7 +93,7 @@ class Tips1Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.affirmationsWork2,),
+										en.MyStrings.affirmationsWork2,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 32),
@@ -110,9 +110,8 @@ class Tips1Fi extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Seuraava',),
-									onPressed: () {
-									Navigator.of(context).push(fiTips2());},
+										'Next',),
+									onPressed: () {},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

@@ -4,13 +4,13 @@ class MyStrings {
 	static const String deleteAccount = 'Delete account';
 	static const String whatDoYouNeed = 'What do you need in your life right now?';
 
-	static const String appName = 'Affirmation Forest';
-
 	static const String whatAreAffirmations = 'What are affirmations?';
-	static const String affirmationsAre = 'Affirmaatio on positiivinen lause, joka vahvistaa ajatteluasi ja auttaa sinua keskittymään haluamaasi muutokseen.';
-	static const String howDoAffirmationsWork = 'Miten affirmaatiot toimivat?';
-	static const String affirmationsWork = 'Toistamalla affirmaatioita säännöllisesti voit:';
-	static const String affirmationsWork2 = 'Vahvistaa itseluottamustasi\nKorvata negatiiviset ajatukset positiivisilla\nOhjata mieltäsi kohti tavoitteitasi';
+	static const String affirmationsAre = 'An affirmation is a positive statement that reinforces your thinking and helps you focus on the change you desire.';
+	static const String howDoAffirmationsWork = 'How do affirmations work?';
+	static const String affirmationsWork = 'By repeating affirmations regularly, you can:';
+	static const String affirmationsWork2 = 'Boost your self-confidence\nReplace negative thoughts with positive ones\nGuide your mind towards your goals';
+
+	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = ' Life areas and balanced everyday life';
 	static const String buttonChoice2 = ' Mental wellness and balance';

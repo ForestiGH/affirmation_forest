@@ -97,13 +97,25 @@ class StartFi extends StatelessWidget {
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
 									),
-								],
-							)
-						)
+							Padding(
+								padding: EdgeInsets.all(190),
+								),
+
+							Padding(
+								padding: EdgeInsets.all(16),
+								child: SvgPicture.asset(
+									MyImages.logoColor,
+								width: 100,
+								height: 100,
+								),
+							),
+						],
 					)
-				);
-			}
-		)
-	);
+				)
+			)
+		);
+	}
+)
+);
 }
 }
