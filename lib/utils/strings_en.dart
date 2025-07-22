@@ -10,6 +10,16 @@ class MyStrings {
 	static const String affirmationsWork = 'By repeating affirmations regularly, you can:';
 	static const String affirmationsWork2 = 'Boost your self-confidence\nReplace negative thoughts with positive ones\nGuide your mind towards your goals';
 
+	static const String howToUse = 'How to use affirmations?';
+	static const String howToUse1 = 'Choose a positive statement';
+	static const String howToUse1a = 'For example: "I am valuable and enough just as I am."';
+	static const String howToUse2 = 'Repeat the statement daily';
+	static const String howToUse2a = 'Say it out loud, write it down, or repeat it in your mind.';
+	static const String howToUse3 = 'Connect with the feeling';
+	static const String howToUse3a = 'Imagine and feel that it is true.';
+	static const String howToUse4 = 'Be consistent';
+	static const String howToUse4a = 'Use affirmations regularly as part of your daily routine.';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = ' Life areas and balanced everyday life';

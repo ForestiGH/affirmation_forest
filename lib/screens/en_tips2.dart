@@ -6,8 +6,8 @@ import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tips2Fi extends StatelessWidget {
-	const Tips2Fi({super.key});
+class Tips2En extends StatelessWidget {
+	const Tips2En({super.key});
 
 	@override
 	Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Tips2Fi extends StatelessWidget {
 								padding: const EdgeInsets.only(bottom: 16),
 								),
 							Text(
-								fi.MyStrings.howToUse,
+								en.MyStrings.howToUse,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -45,7 +45,7 @@ class Tips2Fi extends StatelessWidget {
 									),
 
 							Text(
-								fi.MyStrings.howToUse1,
+								en.MyStrings.howToUse1,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -64,14 +64,14 @@ class Tips2Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToUse1a,),
+										en.MyStrings.howToUse1a,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
 									),
 
 							Text(
-								fi.MyStrings.howToUse2,
+								en.MyStrings.howToUse2,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -90,14 +90,14 @@ class Tips2Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToUse2a,),
+										en.MyStrings.howToUse2a,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
 									),
 
 							Text(
-								fi.MyStrings.howToUse3,
+								en.MyStrings.howToUse3,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -116,14 +116,14 @@ class Tips2Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToUse3a,),
+										en.MyStrings.howToUse3a,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
 									),
 
 							Text(
-								fi.MyStrings.howToUse4,
+								en.MyStrings.howToUse4,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -142,7 +142,7 @@ class Tips2Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToUse4a,),
+										en.MyStrings.howToUse4a,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
@@ -160,7 +160,7 @@ class Tips2Fi extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Seuraava',),
+										'Next',),
 									onPressed: () {},
 									),
 								Padding(
