@@ -161,7 +161,8 @@ class Tips2En extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Next',),
-									onPressed: () {},
+									onPressed: () {
+									Navigator.of(context).push(enTips3());},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

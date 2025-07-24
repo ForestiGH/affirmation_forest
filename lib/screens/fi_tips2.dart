@@ -161,7 +161,8 @@ class Tips2Fi extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Seuraava',),
-									onPressed: () {},
+									onPressed: () {
+									Navigator.of(context).push(fiTips3());},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

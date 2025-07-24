@@ -6,8 +6,8 @@ import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tips3Fi extends StatelessWidget {
-	const Tips3Fi({super.key});
+class Tips3En extends StatelessWidget {
+	const Tips3En({super.key});
 
 	@override
 	Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Tips3Fi extends StatelessWidget {
 								padding: const EdgeInsets.only(bottom: 16),
 								),
 							Text(
-								fi.MyStrings.howToChoose,
+								en.MyStrings.howToChoose,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -53,7 +53,7 @@ class Tips3Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToChoose1,),
+										en.MyStrings.howToChoose1,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 8),
@@ -67,7 +67,7 @@ class Tips3Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToChoose2,),
+										en.MyStrings.howToChoose2,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 8),
@@ -81,7 +81,7 @@ class Tips3Fi extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										fi.MyStrings.howToChoose3,),
+										en.MyStrings.howToChoose3,),
 									),
 								Padding(
 									padding: const EdgeInsets.only(bottom: 32),

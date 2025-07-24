@@ -20,6 +20,11 @@ class MyStrings {
 	static const String howToUse4 = 'Ole johdonmukainen';
 	static const String howToUse4a = 'Käytä affirmaatioita säännöllisesti osana arkeasi.';
 
+	static const String howToChoose = 'Miten valita oikea affirmaatio?';
+	static const String howToChoose1 = 'Keskity siihen, mitä haluat lisää elämääsi, älä siihen, mitä haluat välttää.';
+	static const String howToChoose2 = 'Valitse lause, joka tuntuu sinusta hyvältä ja mahdolliselta.';
+	static const String howToChoose3 = 'Esimerkiksi: "Tunnen itseni itsevarmaksi ja rauhalliseksi kaikissa tilanteissa."';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = 'Hyvinvoiva arki ja ihmissuhteet';

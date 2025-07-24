@@ -5,6 +5,8 @@ import 'package:affirmation_forest/screens/en_tips1.dart';
 import 'package:affirmation_forest/screens/fi_tips1.dart';
 import 'package:affirmation_forest/screens/en_tips2.dart';
 import 'package:affirmation_forest/screens/fi_tips2.dart';
+import 'package:affirmation_forest/screens/en_tips3.dart';
+import 'package:affirmation_forest/screens/fi_tips3.dart';
 import 'package:affirmation_forest/screens/en_choice1.dart';
 import 'package:affirmation_forest/screens/en_choice2a.dart';
 import 'package:affirmation_forest/screens/en_choice2b.dart';
@@ -90,6 +92,34 @@ Route fiTips2() {
 Route enTips2() {
 	return PageRouteBuilder(
 		pageBuilder: (context, animation, secondaryAnimation) => const Tips2En(),
+		transitionsBuilder: (context, animation, secondaryAnimation, child) {
+			const begin = Offset(0.0, 1.0);
+			const end = Offset.zero;
+			const curve = Curves.ease;
+		
+			var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+			return SlideTransition(position: animation.drive(tween), child: child);
+		},
+	);
+}
+Route fiTips3() {
+	return PageRouteBuilder(
+		pageBuilder: (context, animation, secondaryAnimation) => const Tips3Fi(),
+		transitionsBuilder: (context, animation, secondaryAnimation, child) {
+			const begin = Offset(0.0, 1.0);
+			const end = Offset.zero;
+			const curve = Curves.ease;
+		
+			var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+			return SlideTransition(position: animation.drive(tween), child: child);
+		},
+	);
+}
+Route enTips3() {
+	return PageRouteBuilder(
+		pageBuilder: (context, animation, secondaryAnimation) => const Tips3En(),
 		transitionsBuilder: (context, animation, secondaryAnimation, child) {
 			const begin = Offset(0.0, 1.0);
 			const end = Offset.zero;

@@ -20,6 +20,11 @@ class MyStrings {
 	static const String howToUse4 = 'Be consistent';
 	static const String howToUse4a = 'Use affirmations regularly as part of your daily routine.';
 
+	static const String howToChoose = 'How to choose the right affirmation?';
+	static const String howToChoose1 = 'Focus on what you want to add to your life, not on what you want to avoid.';
+	static const String howToChoose2 = 'Choose a statement that feels good and possible for you.';
+	static const String howToChoose3 = 'For example: "I feel confident and calm in all situations."';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = ' Life areas and balanced everyday life';
