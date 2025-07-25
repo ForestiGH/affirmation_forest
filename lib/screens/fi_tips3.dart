@@ -100,7 +100,8 @@ class Tips3Fi extends StatelessWidget {
 											),
 										'Seuraava',),
 									onPressed: () {
-									Navigator.of(context).push(fiTips2());},
+									Navigator.of(context).push(fiTips4());
+									},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

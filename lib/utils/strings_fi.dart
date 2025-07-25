@@ -25,6 +25,16 @@ class MyStrings {
 	static const String howToChoose2 = 'Valitse lause, joka tuntuu sinusta hyvältä ja mahdolliselta.';
 	static const String howToChoose3 = 'Esimerkiksi: "Tunnen itseni itsevarmaksi ja rauhalliseksi kaikissa tilanteissa."';
 
+	static const String tipsHowToUse = 'Vinkkejä tehokkaaseen affirmaatioiden käyttöön:';
+	static const String tipsHowToUse1 = 'Käytä preesensiä';
+	static const String tipsHowToUse1a = '"Minä olen" tai "Minä tunnen" -muodossa.';
+	static const String tipsHowToUse2 = 'Pysy positiivisena';
+	static const String tipsHowToUse2a = 'Vältä negatiivisia sanoja, kuten "en" tai "älä".';
+	static const String tipsHowToUse3 = 'Toista säännöllisesti';
+	static const String tipsHowToUse3a = 'Toista affirmaatiota päivittäin, mieluiten aamulla ja illalla.';
+	static const String tipsHowToUse4 = 'Kokeile peiliaffirmaatioita';
+	static const String tipsHowToUse4a = 'Sano affirmaatio ääneen peilin edessä katsoen itseäsi silmiin.';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = 'Hyvinvoiva arki ja ihmissuhteet';
