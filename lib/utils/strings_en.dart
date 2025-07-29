@@ -25,6 +25,16 @@ class MyStrings {
 	static const String howToChoose2 = 'Choose a statement that feels good and possible for you.';
 	static const String howToChoose3 = 'For example: "I feel confident and calm in all situations."';
 
+	static const String tipsHowToUse = 'Tips for effective use of affirmations:';
+	static const String tipsHowToUse1 = 'Use the present tense';
+	static const String tipsHowToUse1a = '"I am" or "I feel" form.';
+	static const String tipsHowToUse2 = 'Stay positive';
+	static const String tipsHowToUse2a = 'Avoid negative words like "not" or "don\'t".';
+	static const String tipsHowToUse3 = 'Repeat regularly';
+	static const String tipsHowToUse3a = 'Repeat the affirmation daily, preferably in the morning and evening.';
+	static const String tipsHowToUse4 = 'Try mirror affirmations';
+	static const String tipsHowToUse4a = 'Say the affirmation out loud in front of a mirror, looking into your own eyes.';
+
 	static const String appName = 'Affirmation Forest';
 
 	static const String buttonChoice1 = ' Life areas and balanced everyday life';

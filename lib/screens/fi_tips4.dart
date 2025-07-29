@@ -161,9 +161,9 @@ class Tips4Fi extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Seuraava',),
+										'Palaa kotiruutuun',),
 									onPressed: () {
-									Navigator.of(context).push(finnishOption());},
+									Navigator.of(context).popUntil((route) => route.isFirst);},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),

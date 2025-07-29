@@ -6,8 +6,8 @@ import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Tips3En extends StatelessWidget {
-	const Tips3En({super.key});
+class Tips4En extends StatelessWidget {
+	const Tips4En({super.key});
 
 	@override
 	Widget build(BuildContext context) {
@@ -26,14 +26,27 @@ class Tips3En extends StatelessWidget {
 								backgroundColor: MyColor.bianca,
 								),
 							Image.asset(
-								MyImages.wcRabbit,
+								MyImages.wcLynx,
 								width: 200,
 								height: 200,),
 							Padding(
 								padding: const EdgeInsets.only(bottom: 16),
 								),
 							Text(
-								en.MyStrings.howToChoose,
+								en.MyStrings.tipsHowToUse,
+								textAlign: TextAlign.center,
+								style: TextStyle(
+									fontWeight: FontWeight.bold,
+									fontFamily: 'Merriweather',
+									color: MyColor.crete,
+									fontSize: 22,)
+								),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 16),
+									),
+
+							Text(
+								en.MyStrings.tipsHowToUse1,
 								style: TextStyle(
 									fontWeight: FontWeight.bold,
 									fontFamily: 'Merriweather',
@@ -41,36 +54,33 @@ class Tips3En extends StatelessWidget {
 									fontSize: 18,)
 								),
 								Padding(
+									padding: const EdgeInsets.only(bottom: 4),
+									),
+								SizedBox(
+									width: 350,
+									child: Text(
+									textAlign: TextAlign.center,
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											color: MyColor.lisbonBrown,
+											fontSize: 16,
+											),
+										en.MyStrings.tipsHowToUse1a,),
+									),
+								Padding(
 									padding: const EdgeInsets.only(bottom: 16),
 									),
 
-								SizedBox(
-									width: 350,
-									child: Text(
-									textAlign: TextAlign.center,
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											color: MyColor.lisbonBrown,
-											fontSize: 16,
-											),
-										en.MyStrings.howToChoose1,),
-									),
+							Text(
+								en.MyStrings.tipsHowToUse2,
+								style: TextStyle(
+									fontWeight: FontWeight.bold,
+									fontFamily: 'Merriweather',
+									color: MyColor.crete,
+									fontSize: 18,)
+								),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
-									),
-								SizedBox(
-									width: 350,
-									child: Text(
-									textAlign: TextAlign.center,
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											color: MyColor.lisbonBrown,
-											fontSize: 16,
-											),
-										en.MyStrings.howToChoose2,),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
+									padding: const EdgeInsets.only(bottom: 4),
 									),
 								SizedBox(
 									width: 350,
@@ -81,11 +91,64 @@ class Tips3En extends StatelessWidget {
 											color: MyColor.lisbonBrown,
 											fontSize: 16,
 											),
-										en.MyStrings.howToChoose3,),
+										en.MyStrings.tipsHowToUse2a,),
 									),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 32),
+									padding: const EdgeInsets.only(bottom: 16),
 									),
+
+							Text(
+								en.MyStrings.tipsHowToUse3,
+								style: TextStyle(
+									fontWeight: FontWeight.bold,
+									fontFamily: 'Merriweather',
+									color: MyColor.crete,
+									fontSize: 18,)
+								),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 4),
+									),
+								SizedBox(
+									width: 350,
+									child: Text(
+									textAlign: TextAlign.center,
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											color: MyColor.lisbonBrown,
+											fontSize: 16,
+											),
+										en.MyStrings.tipsHowToUse3a,),
+									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 16),
+									),
+
+							Text(
+								en.MyStrings.tipsHowToUse4,
+								style: TextStyle(
+									fontWeight: FontWeight.bold,
+									fontFamily: 'Merriweather',
+									color: MyColor.crete,
+									fontSize: 18,)
+								),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 4),
+									),
+								SizedBox(
+									width: 350,
+									child: Text(
+									textAlign: TextAlign.center,
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											color: MyColor.lisbonBrown,
+											fontSize: 16,
+											),
+										en.MyStrings.tipsHowToUse4a,),
+									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 16),
+									),
+
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
 										fixedSize: Size(175, 20),
@@ -98,16 +161,16 @@ class Tips3En extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Next',),
+										'Seuraava',),
 									onPressed: () {
-									Navigator.of(context).push(enTips4());},
+									Navigator.of(context).push(finnishOption());},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),
 									child: SvgPicture.asset(
 										MyImages.logoColor,
-										width: 100,
-										height: 100,
+										width: 75,
+										height: 75,
 										),
 									),
 								],
