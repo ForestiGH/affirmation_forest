@@ -161,9 +161,9 @@ class Tips4En extends StatelessWidget {
 										style: TextStyle(
 											fontFamily: 'Poppins',
 											),
-										'Seuraava',),
+										'Return home',),
 									onPressed: () {
-									Navigator.of(context).push(finnishOption());},
+									Navigator.of(context).popUntil((route) => route.isFirst);},
 									),
 								Padding(
 									padding: EdgeInsets.all(16),
