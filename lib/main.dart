@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:affirmation_forest/screens/home_screen.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 
 void main() {
+	WidgetsFlutterBinding.ensureInitialized();
+	InAppPurchase.instance.isAvailable();
 	runApp( MyApp() );
 }
 
