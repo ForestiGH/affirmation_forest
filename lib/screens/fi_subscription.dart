@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
-class SubscriptionPage extends StatelessWidget {
+class FiSubscriptionPage extends StatelessWidget {
   final List<ProductDetails> products;
 
-  SubscriptionPage({required this.products});
+  FiSubscriptionPage({required this.products});
 
   @override
   Widget build(BuildContext context) {

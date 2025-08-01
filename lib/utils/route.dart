@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:affirmation_forest/screens/en_start_screen.dart';
 import 'package:affirmation_forest/screens/fi_start_screen.dart';
+import 'package:affirmation_forest/screens/fi_subscription.dart';
 import 'package:affirmation_forest/screens/en_tips1.dart';
 import 'package:affirmation_forest/screens/fi_tips1.dart';
 import 'package:affirmation_forest/screens/en_tips2.dart';
@@ -43,6 +44,20 @@ Route englishOption() {
 Route finnishOption() {
 	return PageRouteBuilder(
 		pageBuilder: (context, animation, secondaryAnimation) => const StartFi(),
+		transitionsBuilder: (context, animation, secondaryAnimation, child) {
+			const begin = Offset(0.0, 1.0);
+			const end = Offset.zero;
+			const curve = Curves.ease;
+		
+			var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+			return SlideTransition(position: animation.drive(tween), child: child);
+		},
+	);
+}
+Route fiSubscription() {
+	return PageRouteBuilder(
+		pageBuilder: (context, animation, secondaryAnimation) => const FiSubscriptionPage(),
 		transitionsBuilder: (context, animation, secondaryAnimation, child) {
 			const begin = Offset(0.0, 1.0);
 			const end = Offset.zero;
