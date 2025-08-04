@@ -1,6 +1,10 @@
 <component name="libraryTable">
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
-    <CLASSES />
+    <CLASSES>
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/in_app_purchase-3.2.3" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/in_app_purchase_storekit-0.4.3" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/in_app_purchase_android-0.4.0+2" />
+    </CLASSES>
     <JAVADOC />
     <SOURCES />
   </library>

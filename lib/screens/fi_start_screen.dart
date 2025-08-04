@@ -92,7 +92,9 @@ class StartFi extends StatelessWidget {
 											fontFamily: 'Poppins',
 											),
 										'Tilaus',),
-									onPressed: () {},
+									onPressed: () {
+									Navigator.of(context).push(fiSubscription());
+									},
 									icon: Align(
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
