@@ -99,8 +99,31 @@ class StartFi extends StatelessWidget {
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
 									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 32),
+									),
+								ElevatedButton.icon(
+									style: ElevatedButton.styleFrom(
+										fixedSize: Size(350, 20),
+										backgroundColor: MyColor.chelseaCucumber,
+										foregroundColor: MyColor.kelp,
+										shape: const RoundedRectangleBorder(
+											borderRadius: BorderRadius.all(Radius.circular(2))),
+										),
+									label: const Text(
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											),
+										'Käyttöehdot ja tietosuojaseloste',),
+									onPressed: () {
+									Navigator.of(context).push(fiTermsAndConditions());
+									},
+									icon: Align(
+										alignment: Alignment.centerLeft,
+										child: SvgPicture.asset(MyImages.mushroom, width: 30, height: 30,),),
+									),
 							Padding(
-								padding: EdgeInsets.all(190),
+								padding: EdgeInsets.all(158),
 								),
 
 							Padding(
