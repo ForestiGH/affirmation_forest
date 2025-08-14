@@ -1,5 +1,6 @@
+import 'package:affirmation_forest/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
+//import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:affirmation_forest/utils/subscription.dart';
 
 class FiSubscriptionPage extends StatefulWidget {
@@ -26,10 +27,21 @@ class _SubscriptionPageState extends State<FiSubscriptionPage> {
   @override
   Widget build(BuildContext context) {
     final products = _subscriptionService.products;
-
-    return Scaffold(
-      appBar: AppBar(title: Text('Subscription')),
-      body: products.isEmpty
+    return Material(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Container(
+              color: MyColor.bianca,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+              AppBar(
+                backgroundColor: MyColor.bianca,
+                ),
+              products.isEmpty
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: products.length,
@@ -43,8 +55,15 @@ class _SubscriptionPageState extends State<FiSubscriptionPage> {
                     child: Text(product.price),
                   ),
                 );
-              },
-            ),
-    );
-  }
+              }  
+            )
+          ],
+        )
+      ) 
+    )
+  );
+}
+)
+);
+}
 }
