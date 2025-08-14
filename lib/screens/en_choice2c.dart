@@ -1,5 +1,5 @@
 import 'package:affirmation_forest/utils/colors.dart';
-import 'package:affirmation_forest/utils/route.dart';
+//import 'package:affirmation_forest/utils/route.dart';
 import 'package:affirmation_forest/utils/strings_en.dart' as en;
 //import 'package:affirmation_forest/utils/strings_fi.dart' as fi;
 import 'package:affirmation_forest/utils/images.dart';

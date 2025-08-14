@@ -6,7 +6,7 @@ Widget build (BuildContext context) {
 return MaterialApp(
 	theme: ThemeData(
 		colorScheme: ColorScheme.fromSeed(
-			seedColor: MyColor.green,
+			seedColor: MyColor.crete,
 			brightness: Brightness.light,
 			),
 		textTheme: TextTheme(
