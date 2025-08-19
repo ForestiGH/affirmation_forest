@@ -19,6 +19,7 @@ class AffirmationDisplay extends StatefulWidget {
 class AffirmationDisplayState extends State<AffirmationDisplay> {
   String? randomValue;
   bool isLoading = false;
+  List<String> categoryAffirmations = [];
 
   Future<void> loadRandomValue() async {
     setState(() {
@@ -36,21 +37,40 @@ class AffirmationDisplayState extends State<AffirmationDisplay> {
       }
 
       // 2. Parse JSON
-      final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
-      debugPrint('Available categories: ${jsonData.keys.join(', ')}');
+      final parsedJson = jsonDecode(jsonString);
+      
+      // 3. Extract affirmations for the category
+      if (parsedJson is Map<String, dynamic>) {
+        // Handle Map format where values can be String or List<String>
+        final dynamic categoryData = parsedJson[widget.categoryName];
+        
+        if (categoryData == null) {
+          throw Exception('Category "${widget.categoryName}" not found');
+        }
 
-      // 3. Get affirmation for selected category
-      final affirmation = jsonData[widget.categoryName] as String?;
-      if (affirmation == null) {
-        throw Exception('Category "${widget.categoryName}" not found. Available categories: ${jsonData.keys.join(', ')}');
+        if (categoryData is String) {
+          categoryAffirmations = [categoryData];
+        } 
+        else if (categoryData is List<dynamic>) {
+          categoryAffirmations = categoryData.map((e) => e.toString()).toList();
+        } 
+        else {
+          throw Exception('Invalid format for category "${widget.categoryName}"');
+        }
+      } 
+      else {
+        throw Exception('JSON root should be a Map');
       }
 
-      if (affirmation.isEmpty) {
-        throw Exception('Affirmation for "${widget.categoryName}" is empty');
+      // 4. Validate we got affirmations
+      if (categoryAffirmations.isEmpty) {
+        throw Exception('No affirmations found for "${widget.categoryName}"');
       }
 
-      setState(() => randomValue = affirmation);
-      debugPrint('Selected affirmation: $randomValue');
+      // 5. Select random affirmation
+      categoryAffirmations.shuffle();
+      setState(() => randomValue = categoryAffirmations.first);
+      debugPrint('Selected random affirmation: $randomValue');
 
     } catch (e, stackTrace) {
       debugPrint('Error loading JSON: $e\n$stackTrace');
@@ -73,7 +93,7 @@ class AffirmationDisplayState extends State<AffirmationDisplay> {
         children: [
           ElevatedButton(
             onPressed: loadRandomValue,
-            child: const Text('Load Affirmation'),
+            child: const Text('Load Random Affirmation'),
           ),
           const SizedBox(height: 20),
           if (isLoading) const CircularProgressIndicator(),

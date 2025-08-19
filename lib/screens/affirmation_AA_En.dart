@@ -14,8 +14,8 @@ return Scaffold(
 	body: Padding(
 		padding: const EdgeInsets.all(16.0),
 		child: AffirmationDisplay(
-			csvAssetPath: 'assets/sheets/affirmations.csv',
-			columnName: 'Balanced_and_fulfilling_everyday_life',
+			categoryName: 'Balanced_and_fulfilling_everyday_life',
+			jsonAssetPath: 'assets/sheets/affirmations.json',
 		),
 	),
 );
