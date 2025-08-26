@@ -25,21 +25,26 @@ class StartEn extends StatelessWidget {
 							AppBar(
 								backgroundColor: MyColor.bianca,
 								),
-							Text(
+							Center(
+								child: SizedBox(
+									width: 350,
+									child: Text(
 								'Welcome to the Affirmation Forest!',
 								style: TextStyle(
 									fontFamily: 'Merriweather',
 									color: MyColor.crete,
 									fontSize: 18,)
+									),
+								),
 								),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 16),
+									padding: const EdgeInsets.all(48),
 									),
 
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -61,8 +66,8 @@ class StartEn extends StatelessWidget {
 									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -79,10 +84,13 @@ class StartEn extends StatelessWidget {
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
 									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 8),
+									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -97,8 +105,31 @@ class StartEn extends StatelessWidget {
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
 									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 8),
+									),
+								ElevatedButton.icon(
+									style: ElevatedButton.styleFrom(
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
+										foregroundColor: MyColor.kelp,
+										shape: const RoundedRectangleBorder(
+											borderRadius: BorderRadius.all(Radius.circular(2))),
+										),
+									label: const Text(
+										style: TextStyle(
+											fontFamily: 'Poppins',
+											),
+										'Käyttöehdot ja tietosuojaseloste',),
+									onPressed: () {
+									Navigator.of(context).push(fiTermsAndConditions());
+									},
+									icon: Align(
+										alignment: Alignment.centerLeft,
+										child: SvgPicture.asset(MyImages.mushroom, width: 30, height: 30,),),
+									),
 							Padding(
-								padding: EdgeInsets.all(190),
+								padding: EdgeInsets.all(80),
 								),
 
 							Padding(

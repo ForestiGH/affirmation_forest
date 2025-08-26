@@ -37,7 +37,7 @@ class Choice2cFi extends StatelessWidget {
 								),
 							),
 							Padding(
-								padding: EdgeInsets.all(32),
+								padding: EdgeInsets.all(48),
 								),
 
 							ElevatedButton.icon(

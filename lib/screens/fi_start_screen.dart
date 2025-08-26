@@ -21,25 +21,30 @@ class StartFi extends StatelessWidget {
 							color: MyColor.bianca,
 						child: Column(
 							mainAxisSize: MainAxisSize.min,
-							children: [
+							children: <Widget>[
 							AppBar(
 								backgroundColor: MyColor.bianca,
 								),
-							Text(
+							Center(
+								child: SizedBox(
+									width: 350,
+									child: Text(
 								'Tervetuloa Affirmation Forestiin!',
 								style: TextStyle(
 									fontFamily: 'Merriweather',
 									color: MyColor.crete,
 									fontSize: 18,)
+									),
+								),
 								),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 16),
+									padding: const EdgeInsets.all(48),
 									),
 
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -61,8 +66,8 @@ class StartFi extends StatelessWidget {
 									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -79,10 +84,13 @@ class StartFi extends StatelessWidget {
 										alignment: Alignment.centerLeft,
 										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
 									),
+								Padding(
+									padding: const EdgeInsets.only(bottom: 8),
+									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -100,12 +108,12 @@ class StartFi extends StatelessWidget {
 										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
 									),
 								Padding(
-									padding: const EdgeInsets.only(bottom: 32),
+									padding: const EdgeInsets.only(bottom: 8),
 									),
 								ElevatedButton.icon(
 									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 20),
-										backgroundColor: MyColor.chelseaCucumber,
+										fixedSize: Size(350, 60),
+										backgroundColor: MyColor.celery,
 										foregroundColor: MyColor.kelp,
 										shape: const RoundedRectangleBorder(
 											borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -123,7 +131,7 @@ class StartFi extends StatelessWidget {
 										child: SvgPicture.asset(MyImages.mushroom, width: 30, height: 30,),),
 									),
 							Padding(
-								padding: EdgeInsets.all(158),
+								padding: EdgeInsets.all(80),
 								),
 
 							Padding(

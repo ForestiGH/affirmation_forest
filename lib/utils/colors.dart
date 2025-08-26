@@ -7,6 +7,7 @@ class MyColor {
 
   static const crete = Color(0xFF798B41);
   static const chelseaCucumber = Color(0xFF9aaf57);
+  static const celery = Color(0xFFb7cf61);
   static const deco = Color(0xFFc4d689);
   static const caper = Color(0xFFd7e4b1);
   static const chromeWhite = Color(0xFFe3edcc);

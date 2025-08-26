@@ -38,7 +38,7 @@ class Choice2bEn extends StatelessWidget {
 								),
 							),
 							Padding(
-								padding: EdgeInsets.all(32),
+								padding: EdgeInsets.all(48),
 								),
 
 								ElevatedButton.icon(
