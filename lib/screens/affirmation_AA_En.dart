@@ -4,7 +4,7 @@ import 'package:affirmation_forest/utils/affirmation_display.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
 class AffirmationAAEn extends StatelessWidget {
-	List<Container> cards = [
+	final List<Container> cards = [
 	Container(
 		alignment: Alignment.center,
 		child: AffirmationDisplay(
