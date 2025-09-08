@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'dart:math';
 
 class AffirmationAAEn extends StatefulWidget {
   @override
@@ -12,6 +13,29 @@ class AffirmationAAEn extends StatefulWidget {
 
 class _AffirmationAAEnState extends State<AffirmationAAEn> {
   List<String> affirmations = [];
+  List<String> wcImages = [
+  MyImages.wcBear,
+  MyImages.wcBird,
+  MyImages.wcButterfly,
+  MyImages.wcDeer,
+  MyImages.wcDeer2,
+  MyImages.wcDragonfly,
+  MyImages.wcDuck,
+  MyImages.wcFox,
+  MyImages.wcFox2,
+  MyImages.wcFrog,
+  MyImages.wcHedgehog,
+  MyImages.wcLynx,
+  MyImages.wcMoose,
+  MyImages.wcMouse,
+  MyImages.wcOtter,
+  MyImages.wcOwl,
+  MyImages.wcPheasant,
+  MyImages.wcRabbit,
+  MyImages.wcRabbit2,
+  MyImages.wcBird2,
+  ];
+  List<String> cardImages = [];
   bool isLoading = true;
 
   @override
@@ -22,17 +46,16 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
 
   Future<void> loadAffirmations() async {
     try {
-      // Load JSON file
       final jsonString = await rootBundle.loadString('assets/sheets/affirmations.json');
       final parsedJson = jsonDecode(jsonString);
 
-      // Extract affirmations for the category
       final categoryName = 'Balanced_and_fulfilling_everyday_life';
       if (parsedJson is Map<String, dynamic>) {
         final dynamic categoryData = parsedJson[categoryName];
         if (categoryData is List<dynamic>) {
           setState(() {
             affirmations = categoryData.map((e) => e.toString()).toList();
+				generateCardImages();
             isLoading = false;
           });
         } else {
@@ -49,12 +72,18 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     }
   }
 
+  void generateCardImages() {
+  final random = Random();
+  cardImages = List.generate(
+	  affirmations.length,
+	  (_) => wcImages[random.nextInt(wcImages.length)],
+	  );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: MyColor.bianca,
-      ),
+      appBar: AppBar(),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : affirmations.isEmpty
@@ -82,7 +111,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
 									mainAxisSize: MainAxisSize.min,
 									children: [
 								Image.asset(
-									MyImages.wcFox,
+									cardImages[index],
 									width: 150,
 									height: 150,),
                        	Text(
