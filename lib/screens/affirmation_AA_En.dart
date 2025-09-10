@@ -5,6 +5,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AffirmationAAEn extends StatefulWidget {
   @override
