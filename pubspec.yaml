@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.4
   in_app_purchase: ^3.2.3
   flutter_card_swiper: ^7.0.2
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
