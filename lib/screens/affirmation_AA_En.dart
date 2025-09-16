@@ -56,6 +56,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
         if (categoryData is List<dynamic>) {
           setState(() {
             affirmations = categoryData.map((e) => e.toString()).toList();
+				affirmations.shuffle();
 				generateCardImages();
             isLoading = false;
           });
