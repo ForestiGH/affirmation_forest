@@ -37,6 +37,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
   MyImages.wcBird2,
   ];
   List<String> cardImages = [];
+  List<String> savedCards = [];
   bool isLoading = true;
 
   @override
@@ -82,6 +83,40 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
 	  );
   }
 
+  void onCardSwiped(int index, CardSwiperDirection direction) {
+  	if (direction == CardSwiperDirection.right) {
+  	savedCards.add(affirmations[index]);
+  	}
+  
+  if (savedCards.length == 3) {
+  	showSavedCardsDialog();
+  	}
+  }
+
+  void showSavedCardsDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Saved Cards'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: savedCards.map((card) => Text(card)).toList(),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pop(savedCards);
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +127,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
               ? const Center(child: Text('No affirmations found'))
               : CardSwiper(
                   cardsCount: affirmations.length,
+						onSwipe: (index, direction) => onCardSwiped(index, direction), 
                   cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
                     return Container(
                       alignment: Alignment.center,
