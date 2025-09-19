@@ -15,26 +15,26 @@ class AffirmationAAEn extends StatefulWidget {
 class _AffirmationAAEnState extends State<AffirmationAAEn> {
   List<String> affirmations = [];
   List<String> wcImages = [
-  MyImages.wcBear,
-  MyImages.wcBird,
-  MyImages.wcButterfly,
-  MyImages.wcDeer,
-  MyImages.wcDeer2,
-  MyImages.wcDragonfly,
-  MyImages.wcDuck,
-  MyImages.wcFox,
-  MyImages.wcFox2,
-  MyImages.wcFrog,
-  MyImages.wcHedgehog,
-  MyImages.wcLynx,
-  MyImages.wcMoose,
-  MyImages.wcMouse,
-  MyImages.wcOtter,
-  MyImages.wcOwl,
-  MyImages.wcPheasant,
-  MyImages.wcRabbit,
-  MyImages.wcRabbit2,
-  MyImages.wcBird2,
+    MyImages.wcBear,
+    MyImages.wcBird,
+    MyImages.wcButterfly,
+    MyImages.wcDeer,
+    MyImages.wcDeer2,
+    MyImages.wcDragonfly,
+    MyImages.wcDuck,
+    MyImages.wcFox,
+    MyImages.wcFox2,
+    MyImages.wcFrog,
+    MyImages.wcHedgehog,
+    MyImages.wcLynx,
+    MyImages.wcMoose,
+    MyImages.wcMouse,
+    MyImages.wcOtter,
+    MyImages.wcOwl,
+    MyImages.wcPheasant,
+    MyImages.wcRabbit,
+    MyImages.wcRabbit2,
+    MyImages.wcBird2,
   ];
   List<String> cardImages = [];
   List<String> savedCards = [];
@@ -43,6 +43,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
   @override
   void initState() {
     super.initState();
+    loadSavedCards();
     loadAffirmations();
   }
 
@@ -57,8 +58,8 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
         if (categoryData is List<dynamic>) {
           setState(() {
             affirmations = categoryData.map((e) => e.toString()).toList();
-				affirmations.shuffle();
-				generateCardImages();
+            affirmations.shuffle();
+            generateCardImages();
             isLoading = false;
           });
         } else {
@@ -76,21 +77,25 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
   }
 
   void generateCardImages() {
-  final random = Random();
-  cardImages = List.generate(
-	  affirmations.length,
-	  (_) => wcImages[random.nextInt(wcImages.length)],
-	  );
+    final random = Random();
+    cardImages = List.generate(
+      affirmations.length,
+      (_) => wcImages[random.nextInt(wcImages.length)],
+    );
+  }
+  
+
+  Future<void> saveCardsToPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('savedCards', savedCards);
   }
 
-  void onCardSwiped(int index, CardSwiperDirection direction) {
-  	if (direction == CardSwiperDirection.right) {
-  	savedCards.add(affirmations[index]);
-  	}
-  
-  if (savedCards.length == 3) {
-  	showSavedCardsDialog();
-  	}
+  Future<void> loadSavedCards() async {
+    final prefs = await SharedPreferences.getInstance();
+    final loadedCards = prefs.getStringList('savedCards') ?? [];
+    setState(() {
+      savedCards = loadedCards;
+    });
   }
 
   void showSavedCardsDialog() {
@@ -122,12 +127,11 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     return Scaffold(
       appBar: AppBar(),
       body: isLoading
-          ? const Center(child: CircularProgressIndicator())
+		? const Center(child: CircularProgressIndicator())
           : affirmations.isEmpty
               ? const Center(child: Text('No affirmations found'))
               : CardSwiper(
                   cardsCount: affirmations.length,
-						onSwipe: (index, direction) => onCardSwiped(index, direction), 
                   cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
                     return Container(
                       alignment: Alignment.center,
@@ -145,28 +149,40 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-								child: Column(
-									mainAxisSize: MainAxisSize.min,
-									children: [
-								Image.asset(
-									cardImages[index],
-									width: 150,
-									height: 150,),
-                       	Text(
-                          affirmations[index],
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 24,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-								  ),
-                          ),
-                        ],
-								),
-								),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              cardImages[index],
+                              width: 150,
+                              height: 150,
+                            ),
+                            Text(
+                              affirmations[index],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     );
                   },
+						onSwipe: onCardSwiped,
                 ),
-	 	 );
-	}
+    );
+  }
+void onCardSwiped(int index, CardSwiperDirection direction) {
+    if (direction == CardSwiperDirection.right) {
+      savedCards.add(affirmations[index]);
+    }
+
+    if (savedCards.length == 3) {
+      saveCardsToPreferences();
+      showSavedCardsDialog();
+    }
+  }
 }
