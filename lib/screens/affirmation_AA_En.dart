@@ -76,6 +76,18 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     }
   }
 
+	onCardSwiped(int index, CardSwiperDirection direction) {
+    if (direction == CardSwiperDirection.right) {
+      savedCards.add(affirmations[index]);
+    }
+
+    if (savedCards.length == 3) {
+      saveCardsToPreferences();
+      showSavedCardsDialog();
+    }
+	 return true;
+  }
+
   void generateCardImages() {
     final random = Random();
     cardImages = List.generate(
@@ -171,18 +183,8 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
                       ),
                     );
                   },
-						onSwipe: onCardSwiped,
+						onSwipe: onCardSwiped(index, CardSwiperDirection.right),
                 ),
     );
-  }
-void onCardSwiped(int index, CardSwiperDirection direction) {
-    if (direction == CardSwiperDirection.right) {
-      savedCards.add(affirmations[index]);
-    }
-
-    if (savedCards.length == 3) {
-      saveCardsToPreferences();
-      showSavedCardsDialog();
-    }
   }
 }
