@@ -40,6 +40,8 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
   List<String> savedCards = [];
   bool isLoading = true;
 
+  final CardSwiperController _cardSwiperController = CardSwiperController();
+
   @override
   void initState() {
     super.initState();
@@ -76,7 +78,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     }
   }
 
-	onCardSwiped(int index, CardSwiperDirection direction) {
+	void onCardSwiped(int index, CardSwiperDirection direction) {
     if (direction == CardSwiperDirection.right) {
       savedCards.add(affirmations[index]);
     }
@@ -85,7 +87,6 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
       saveCardsToPreferences();
       showSavedCardsDialog();
     }
-	 return true;
   }
 
   void generateCardImages() {
@@ -143,6 +144,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
           : affirmations.isEmpty
               ? const Center(child: Text('No affirmations found'))
               : CardSwiper(
+					   controller: _cardSwiperController,
                   cardsCount: affirmations.length,
                   cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
                     return Container(
@@ -183,7 +185,7 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
                       ),
                     );
                   },
-						onSwipe: onCardSwiped(index, CardSwiperDirection.right),
+						onSwipe: onCardSwiped,
                 ),
     );
   }
