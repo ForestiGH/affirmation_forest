@@ -161,31 +161,45 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
                           ),
                         ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+									Image.asset(
+										MyImages.arrows,
+										width: 200,
+										height: 20,
+										color: MyColor.crete,),
+									 Padding(
+										 padding: const EdgeInsets.only(bottom: 120),),
                             Image.asset(
                               cardImages[index],
                               width: 150,
                               height: 150,
                             ),
-                            Text(
+									 Padding(
+										 padding: const EdgeInsets.only(bottom: 120),),
+									 Container(
+										 alignment: Alignment.center,
+										 margin: const EdgeInsets.all(16),
+										 decoration: BoxDecoration(
+											 color: MyColor.white,
+											 borderRadius: BorderRadius.circular(16.0),
+                            child: Text(
                               affirmations[index],
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 fontSize: 24,
                                 fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold,
+										  color: MyColor.lisbonBrown,
                               ),
+											 ),
                             ),
+									 ),
                           ],
                         ),
-                      ),
                     );
                   },
-						onSwipe: onCardSwiped,
+						// onSwipe: onCardSwiped,
                 ),
     );
   }

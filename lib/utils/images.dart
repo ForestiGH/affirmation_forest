@@ -54,4 +54,6 @@ class MyImages {
   static const String wcPheasant = "assets/images/pheasantWColor.png";
   static const String wcRabbit = "assets/images/rabbitWColor.png";
   static const String wcRabbit2 = "assets/images/rabbitWColor2.png";
+
+  static const String arrows = "assets/images/arrows.png";
 }
