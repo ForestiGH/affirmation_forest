@@ -2,6 +2,7 @@ import 'package:affirmation_forest/utils/colors.dart';
 import 'package:affirmation_forest/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:math';
@@ -135,72 +136,94 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: isLoading
-		? const Center(child: CircularProgressIndicator())
-          : affirmations.isEmpty
-              ? const Center(child: Text('No affirmations found'))
-              : CardSwiper(
-					   controller: _cardSwiperController,
-                  cardsCount: affirmations.length,
-                  cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
-                    return Container(
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.all(16.0),
-                      decoration: BoxDecoration(
-                        color: MyColor.bianca,
-                        borderRadius: BorderRadius.circular(16.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: MyColor.lisbonBrown.withOpacity(0.2),
-                            blurRadius: 8.0,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+	appBar: AppBar(
+		backgroundColor: MyColor.crete,),
+    body: Stack(
+      children: [
+        Positioned(
+          top: -8,
+          left: 0,
+          right: -8,
+          child: Image.asset(
+				 MyImages.wave,
+				 color: MyColor.crete,),
+        ),
+		  Padding(
+			  padding: const EdgeInsets.all(32),
+			  ),
+        CardSwiper(
+          controller: _cardSwiperController,
+          cardsCount: affirmations.length,
+          cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
+            return Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: MyColor.bianca,
+                borderRadius: BorderRadius.circular(16.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: MyColor.lisbonBrown.withOpacity(0.2),
+                    blurRadius: 8.0,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    MyImages.arrows,
+                    width: 200,
+                    height: 20,
+                    color: MyColor.crete,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 64),
+                  ),
+                  Image.asset(
+                    cardImages[index],
+                    width: 200,
+                    height: 200,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 64),
+                  ),
+						SvgPicture.asset(
+							MyImages.logoColor,
+							height: 100,
+							width: 100,),
+                  Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.all(16),
+                    width: double.infinity,
+                    height: 200,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: MyColor.white,
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Text(
+                      affirmations[index],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
+                        color: MyColor.lisbonBrown,
                       ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-									Image.asset(
-										MyImages.arrows,
-										width: 200,
-										height: 20,
-										color: MyColor.crete,),
-									 Padding(
-										 padding: const EdgeInsets.only(bottom: 120),),
-                            Image.asset(
-                              cardImages[index],
-                              width: 150,
-                              height: 150,
-                            ),
-									 Padding(
-										 padding: const EdgeInsets.only(bottom: 120),),
-									 Container(
-										 alignment: Alignment.center,
-										 margin: const EdgeInsets.all(16),
-										 decoration: BoxDecoration(
-											 color: MyColor.white,
-											 borderRadius: BorderRadius.circular(16.0),
-                            child: Text(
-                              affirmations[index],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 24,
-                                fontFamily: 'Poppins',
-										  color: MyColor.lisbonBrown,
-                              ),
-											 ),
-                            ),
-									 ),
-                          ],
-                        ),
-                    );
-                  },
-						// onSwipe: onCardSwiped,
-                ),
-    );
-  }
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+          // onSwipe: onCardSwiped,
+        ),
+      ],
+    ),
+  );
+}
 }
