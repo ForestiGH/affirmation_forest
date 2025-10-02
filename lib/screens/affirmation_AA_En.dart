@@ -222,6 +222,9 @@ Widget build(BuildContext context) {
           },
           // onSwipe: onCardSwiped,
         ),
+		Padding(
+			padding: EdgeInsets.only(top: 32),
+			),
       ],
     ),
   );
