@@ -29,7 +29,6 @@ class _AffirmationAAEnState extends State<AffirmationAAEn> {
     MyImages.wcHedgehog,
     MyImages.wcLynx,
     MyImages.wcMoose,
-    MyImages.wcMouse,
     MyImages.wcOtter,
     MyImages.wcOwl,
     MyImages.wcPheasant,
@@ -160,7 +159,7 @@ Widget build(BuildContext context) {
           cardBuilder: (context, index, percentThresholdX, percentThresholdY) {
             return Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.all(16.0),
+              margin: const EdgeInsets.only(bottom: 64.0),
               decoration: BoxDecoration(
                 color: MyColor.bianca,
                 borderRadius: BorderRadius.circular(16.0),
@@ -175,6 +174,8 @@ Widget build(BuildContext context) {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+						const Padding(
+							padding: EdgeInsets.symmetric(vertical: 8),),
                   Image.asset(
                     MyImages.arrows,
                     width: 200,
@@ -182,7 +183,7 @@ Widget build(BuildContext context) {
                     color: MyColor.crete,
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(bottom: 64),
+                    padding: EdgeInsets.symmetric(vertical: 16),
                   ),
                   Image.asset(
                     cardImages[index],
@@ -190,12 +191,11 @@ Widget build(BuildContext context) {
                     height: 200,
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(bottom: 64),
+                    padding: EdgeInsets.symmetric(vertical: 16),
                   ),
-						SvgPicture.asset(
-							MyImages.logoColor,
-							height: 100,
-							width: 100,),
+						Stack(
+							clipBehavior: Clip.none,
+							children: [
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.all(16),
@@ -216,15 +216,18 @@ Widget build(BuildContext context) {
                       ),
                     ),
                   ),
+						LogoWithBG(),	
                 ],
               ),
+				  ],
+				  ),
             );
           },
           // onSwipe: onCardSwiped,
         ),
-		Padding(
-			padding: EdgeInsets.only(top: 32),
-			),
+		  Padding(
+			  padding: const EdgeInsets.all(32),
+		  ),
       ],
     ),
   );

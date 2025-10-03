@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:affirmation_forest/utils/colors.dart';
+import 'package:affirmation_forest/utils/images.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 class MyImages {
   static const String logoColorAn12 = "assets/images/android12LogoColor.png";
   static const String logoWhiteAn12 = "assets/images/android12LogoWhite.png";
@@ -48,7 +53,7 @@ class MyImages {
   static const String wcHedgehog = "assets/images/hedgehogWColor.png";
   static const String wcLynx = "assets/images/lynxWColor.png";
   static const String wcMoose = "assets/images/mooseWColor.png";
-  static const String wcMouse = "assets/images/mouseWColor.png";
+  // static const String wcMouse = "assets/images/mouseWColor.png";
   static const String wcOtter = "assets/images/otterWColor.png";
   static const String wcOwl = "assets/images/owlWColor.png";
   static const String wcPheasant = "assets/images/pheasantWColor.png";
@@ -57,4 +62,32 @@ class MyImages {
 
   static const String arrows = "assets/images/arrows.png";
   static const String wave = "assets/images/wave.png";
+}
+
+class LogoWithBG extends StatelessWidget {
+@override
+Widget build(BuildContext context) {
+return Stack(
+	alignment: Alignment.center,
+	children: [
+	Container(
+		width: 150,
+		height: 150,
+		decoration: BoxDecoration(
+			shape: BoxShape.circle,
+			color: MyColor.white,
+			),
+		),
+	Positioned(
+		child: SvgPicture.asset(
+			MyImages.logoColor,
+			alignment: Alignment.center,
+			width: 150,
+			height: 150,
+			fit: BoxFit.cover,
+			),
+		),
+	],
+	);
+}
 }
