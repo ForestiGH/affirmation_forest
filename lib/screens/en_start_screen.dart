@@ -1,152 +1,278 @@
 import 'package:affirmation_forest/utils/colors.dart';
-import 'package:affirmation_forest/utils/route.dart';
-//import 'package:affirmation_forest/utils/strings_en.dart' as en;
-//import 'package:affirmation_forest/utils/strings_fi.dart' as fi;
 import 'package:affirmation_forest/utils/images.dart';
+import 'package:affirmation_forest/utils/route.dart';
+import 'package:affirmation_forest/utils/strings_en.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
 
-class StartEn extends StatelessWidget {
-	const StartEn({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
-	@override
-	Widget build(BuildContext context) {
-		return Material(
-		child: LayoutBuilder(
-			builder: (context, constraints) {
-				return SingleChildScrollView(
-					child: ConstrainedBox(
-						constraints: BoxConstraints(minHeight: constraints.maxHeight),
-						child: Container(
-							color: MyColor.bianca,
-						child: Column(
-							mainAxisSize: MainAxisSize.min,
-							children: [
-							AppBar(
-								backgroundColor: MyColor.bianca,
-								),
-							Center(
-								child: SizedBox(
-									width: 350,
-									child: Text(
-								'Welcome to the Affirmation Forest!',
-								style: TextStyle(
-									fontFamily: 'Merriweather',
-									color: MyColor.crete,
-									fontSize: 18,)
-									),
-								),
-								),
-								Padding(
-									padding: const EdgeInsets.all(48),
-									),
-
-								ElevatedButton.icon(
-									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 60),
-										backgroundColor: MyColor.celery,
-										foregroundColor: MyColor.kelp,
-										shape: const RoundedRectangleBorder(
-											borderRadius: BorderRadius.all(Radius.circular(2))),
-										),
-									label: const Text(
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											),
-										'Start!',),
-									onPressed: () {
-									Navigator.of(context).push(enChoice1());
-									},
-									icon: Align(
-										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.paw, width: 30, height: 30,),),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 32),
-									),
-								ElevatedButton.icon(
-									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 60),
-										backgroundColor: MyColor.celery,
-										foregroundColor: MyColor.kelp,
-										shape: const RoundedRectangleBorder(
-											borderRadius: BorderRadius.all(Radius.circular(2))),
-										),
-									label: const Text(
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											),
-										'Tips for using affirmations',),
-									onPressed: () {
-									Navigator.of(context).push(enTips());
-									},
-									icon: Align(
-										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.plant, width: 30, height: 30,),),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
-									),
-								ElevatedButton.icon(
-									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 60),
-										backgroundColor: MyColor.celery,
-										foregroundColor: MyColor.kelp,
-										shape: const RoundedRectangleBorder(
-											borderRadius: BorderRadius.all(Radius.circular(2))),
-										),
-									label: const Text(
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											),
-										'Subscription',),
-									onPressed: () {},
-									icon: Align(
-										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.star, width: 30, height: 30,),),
-									),
-								Padding(
-									padding: const EdgeInsets.only(bottom: 8),
-									),
-								ElevatedButton.icon(
-									style: ElevatedButton.styleFrom(
-										fixedSize: Size(350, 60),
-										backgroundColor: MyColor.celery,
-										foregroundColor: MyColor.kelp,
-										shape: const RoundedRectangleBorder(
-											borderRadius: BorderRadius.all(Radius.circular(2))),
-										),
-									label: const Text(
-										style: TextStyle(
-											fontFamily: 'Poppins',
-											),
-										'Käyttöehdot ja tietosuojaseloste',),
-									onPressed: () {
-									Navigator.of(context).push(fiTermsAndConditions());
-									},
-									icon: Align(
-										alignment: Alignment.centerLeft,
-										child: SvgPicture.asset(MyImages.mushroom, width: 30, height: 30,),),
-									),
-							Padding(
-								padding: EdgeInsets.all(80),
-								),
-
-							Padding(
-								padding: EdgeInsets.all(16),
-								child: SvgPicture.asset(
-									MyImages.logoColor,
-								width: 100,
-								height: 100,
-								),
-							),
-						],
-					)
-				)
-			)
-		);
-	}
-)
-);
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
 }
+
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  @override
+  void initState() {
+    final controller = Get.put(HomeController());
+    super.initState();
+    controller.cardController = CardController();
+    controller.resetCardController();
+    const SystemUiOverlayStyle(statusBarColor: MyColor.transparentColor);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<HomeController>(
+      builder: (controller) => ZoomDrawer(
+        showShadow: true,
+        style: DrawerStyle.defaultStyle,
+        menuBackgroundColor: MyColor.buttonColor,
+        menuScreenTapClose: true,
+        menuScreenWidth: MediaQuery.of(context).size.width,
+        duration: const Duration(milliseconds: 500),
+        slideWidth: MediaQuery.of(context).size.width * 0.65,
+        angle: 0,
+        controller: controller.drawerController,
+        menuScreen: const DrawerMenu(),
+        mainScreen: Scaffold(
+          backgroundColor: MyColor.getScreenBgColor(),
+          body: GetBuilder<HomeController>(
+            builder: (controller) => SingleChildScrollView(
+              padding: Dimensions.screenPadding,
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: Dimensions.space5),
+                    padding: const EdgeInsets.symmetric(vertical: Dimensions.space15, horizontal: Dimensions.space10),
+                    decoration: BoxDecoration(border: Border.all(color: MyColor.colorWhite), color: MyColor.colorWhite, borderRadius: BorderRadius.circular(Dimensions.space10)),
+                    child: Row(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(Dimensions.space8),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xFFF76F96),
+                              Color(0xFFF66D95),
+                              Color(0xFFEB507E),
+                              Color(0xFFE64375),
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(Dimensions.space8),
+                          child: CustomSvgPicture(
+                            image: MyImages.pinImage,
+                            color: MyColor.colorWhite,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: Dimensions.space10),
+                      SizedBox(
+                        width: Dimensions.space200 + Dimensions.space20,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              MyStrings.location,
+                              style: boldLarge,
+                            ),
+                            Text(
+                              MyStrings.london,
+                              style: regularDefault.copyWith(color: MyColor.getSecondaryTextColor()),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      InkWell(
+                          onTap: () {
+                            controller.drawerController.toggle!();
+                          },
+                          child:  Image.asset(MyImages.burgerMenu,color: MyColor.buttonColor,height: Dimensions.space20,)),
+                    ]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.space10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              Get.toNamed(RouteHelper.searchConnectionScreen);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: Dimensions.space10, vertical: Dimensions.space10),
+                              decoration: BoxDecoration(color: MyColor.greyColor.withOpacity(.12), borderRadius: BorderRadius.circular(Dimensions.space8)),
+                              child: const Row(
+                                children: [CustomSvgPicture(image: MyImages.search), SizedBox(width: Dimensions.space10), Text(MyStrings.search)],
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: Dimensions.space10),
+                        InkWell(
+                          onTap: () {
+                            CustomBottomSheet(child: const FilterBottomSheet()).customBottomSheet(context);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(Dimensions.space8),
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color(0xFFF76F96),
+                                  Color(0xFFF66D95),
+                                  Color(0xFFEB507E),
+                                  Color(0xFFE64375),
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(Dimensions.space8),
+                              child: CustomSvgPicture(
+                                image: MyImages.filter,
+                                color: MyColor.colorWhite,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: Dimensions.space10),
+                  Stack(
+                    children: [
+                      controller.currentIndex == controller.girlsImages.length - 1
+                          ? Container(
+                            padding:const EdgeInsets.only(top: Dimensions.space200),
+                            child: Text(MyStrings.youareAllCaughtupforToday,style: semiBoldOverLarge.copyWith(fontFamily:'dancing',color: MyColor.buttonColor ),),)
+                          : Container(
+                              margin: const EdgeInsets.symmetric(vertical: Dimensions.space10),
+                              height: MediaQuery.of(context).size.height * 0.7,
+                              child: TinderSwapCard(
+                                swipeUp: true,
+                                swipeDown: true,
+                                orientation: AmassOrientation.bottom,
+                                totalNum: controller.girlsImages.length,
+                                stackNum: 3,
+                                swipeEdge: 4.0,
+                                maxWidth: MediaQuery.of(context).size.width * 0.9,
+                                maxHeight: MediaQuery.of(context).size.width * 1.8,
+                                minWidth: MediaQuery.of(context).size.width * 0.5,
+                                minHeight: MediaQuery.of(context).size.width * 0.8,
+                                cardBuilder: (context, index) => SizedBox(
+                                  height: MediaQuery.of(context).size.height * 0.7,
+                                  width: MediaQuery.of(context).size.width * 0.7,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    child: InkWell(
+                                      onTap: () {
+                                        Get.toNamed(RouteHelper.partnersProfileScreen);
+                                      },
+                                      child: Image.asset(
+                                        controller.girlsImages[index],
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                cardController: controller.cardController,
+                                swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {},
+                                swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
+                                  controller.currentIndex = index % controller.names.length;
+                                  controller.currentIndex == controller.girlsImages.length - 1 ? Get.toNamed(RouteHelper.matchScreen) : null;
+                                  controller.resetCardController();
+                                   controller.currentIndex = 0;
+                                 
+                                  controller.onSwipeComplete(orientation, index);
+                                  controller.update();
+                                },
+                              ),
+                            ),
+                      Padding(
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .6, left: MediaQuery.of(context).size.width * .15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              controller.names[controller.currentIndex],
+                              style: boldOverLarge.copyWith(color: MyColor.colorWhite),
+                            ),
+                            Text(
+                              MyStrings.uiuxDesigner,
+                              style: regularLarge.copyWith(color: MyColor.colorWhite.withOpacity(.7)),
+                            )
+                          ],
+                        ),
+                      ),
+                      controller.currentIndex == controller.girlsImages.length - 1
+                          ? const SizedBox()
+                          : Padding(
+                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * .67, right: 70, left: 70),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      controller.cardController?.triggerLeft();
+                                    },
+                                    child: Container(
+                                      padding:const EdgeInsets.all(Dimensions.space15),
+                                      decoration:const BoxDecoration(color: MyColor.lBackgroundColor, shape: BoxShape.circle),
+                                      child:const CustomSvgPicture(
+                                        image: MyImages.cancel,
+                                        color: MyColor.colorRed,
+                                        height: Dimensions.space12,
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      controller.cardController?.triggerUp();
+                                    },
+                                    child: Container(
+                                      padding:const EdgeInsets.all(Dimensions.space20),
+                                      decoration:const BoxDecoration(color: MyColor.lBackgroundColor, shape: BoxShape.circle),
+                                      child:const CustomSvgPicture(
+                                        image: MyImages.heart,
+                                        color: MyColor.colorRed,
+                                        height: Dimensions.space25,
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      controller.cardController?.triggerRight();
+                                    },
+                                    child: Container(
+                                      padding:const EdgeInsets.all(Dimensions.space15),
+                                      decoration:const BoxDecoration(color: MyColor.lBackgroundColor, shape: BoxShape.circle),
+                                      child:const CustomSvgPicture(
+                                        image: MyImages.star,
+                                        color: MyColor.goldenColor,
+                                        height: Dimensions.space12,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
